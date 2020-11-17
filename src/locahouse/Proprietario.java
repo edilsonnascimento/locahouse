@@ -1,4 +1,5 @@
 package locahouse;
+
 /**
  * @author Edilson do Nascimento
  *
@@ -11,6 +12,11 @@ public class Proprietario {
 	public Proprietario() {
 		this.cpf_fProp = 00000000000;
 		this.nome_Prop = "";
+	}
+
+	public Proprietario(int cpf_fProp, String nome_Prop) {
+		this.cpf_fProp = cpf_fProp;
+		this.nome_Prop = nome_Prop;
 	}
 
 	public int getCpf_fProp() {

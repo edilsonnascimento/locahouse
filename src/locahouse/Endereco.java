@@ -1,4 +1,5 @@
 package locahouse;
+
 /**
  * @author Edilson do Nascimento
  *
@@ -13,6 +14,12 @@ public class Endereco {
 		this.rua = "";
 		this.num = 0;
 		this.cidade = new Cidade();
+	}
+
+	public Endereco(String rua, int num, Cidade cidade) {
+		this.rua = rua;
+		this.num = num;
+		this.cidade = cidade;
 	}
 
 	public String getRua() {

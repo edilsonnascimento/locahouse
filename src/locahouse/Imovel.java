@@ -18,6 +18,13 @@ public abstract class Imovel {
 		this.proprietario = new Proprietario();
 	}
 
+	public Imovel(String tipoMaterial, int valorAluguel, Endereco endereco, Proprietario proprietario) {
+		this.tipoMaterial = tipoMaterial;
+		this.valorAluguel = valorAluguel;
+		this.endereco = endereco;
+		this.proprietario = proprietario;
+	}
+
 	public String getTipoMaterial() {
 		return tipoMaterial;
 	}

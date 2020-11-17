@@ -18,6 +18,14 @@ public class Locacao {
 		this.apartamento = new Apartamento();
 		this.casa = new Casa();
 	}
+	
+	public Locacao(Date dataInicio, Date dataFim, Apartamento apartamento, Casa casa) {
+		this.dataInicio = dataInicio;
+		this.dataFim = dataFim;
+		this.apartamento = apartamento;
+		this.casa = casa;
+	}
+
 
 	public Date getDataInicio() {
 		return dataInicio;

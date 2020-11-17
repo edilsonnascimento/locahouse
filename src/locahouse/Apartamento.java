@@ -1,4 +1,5 @@
 package locahouse;
+
 /**
  * @author Edilson do Nascimento
  *
@@ -11,6 +12,11 @@ public class Apartamento extends Imovel {
 	public Apartamento() {
 		this.nomeEdificio = "";
 		this.areaInterna = 0;
+	}
+
+	public Apartamento(String nomeEdificio, int areaInterna) {
+		this.nomeEdificio = nomeEdificio;
+		this.areaInterna = areaInterna;
 	}
 
 	public String getNomeEdificio() {

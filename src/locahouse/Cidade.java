@@ -1,4 +1,5 @@
 package locahouse;
+
 /**
  * @author Edilson do Nascimento
  *
@@ -12,7 +13,12 @@ public class Cidade {
 		this.codCid = 0;
 		this.nomeCid = "";
 	}
-		
+
+	public Cidade(int codCid, String nomeCid) {
+		this.codCid = codCid;
+		this.nomeCid = nomeCid;
+	}
+
 	public int getCodCid() {
 		return codCid;
 	}
