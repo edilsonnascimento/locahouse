@@ -14,7 +14,8 @@ public class Casa extends Imovel {
 		this.qtdComodos = 0;
 	}
 
-	public Casa(String estilo, int qtdComodos) {
+	public Casa(String estilo, int qtdComodos, String tipoMaterial, int valorAluguel, Endereco endereco, Proprietario proprietario) {		
+		super(tipoMaterial, valorAluguel, endereco, proprietario);
 		this.estilo = estilo;
 		this.qtdComodos = qtdComodos;
 	}

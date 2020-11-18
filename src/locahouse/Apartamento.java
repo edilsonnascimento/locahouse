@@ -14,7 +14,8 @@ public class Apartamento extends Imovel {
 		this.areaInterna = 0;
 	}
 
-	public Apartamento(String nomeEdificio, int areaInterna) {
+	public Apartamento(String nomeEdificio, int areaInterna, String tipoMaterial, int valorAluguel, Endereco endereco, Proprietario proprietario) {
+		super(tipoMaterial, valorAluguel, endereco, proprietario);
 		this.nomeEdificio = nomeEdificio;
 		this.areaInterna = areaInterna;
 	}
