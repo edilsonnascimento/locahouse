@@ -35,4 +35,9 @@ public class Cidade {
 		this.nomeCid = nomeCid;
 	}
 
+	@Override
+	public String toString() {
+		return this.getNomeCid() + ".";
+	}
+
 }

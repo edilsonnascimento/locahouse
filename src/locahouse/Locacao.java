@@ -1,4 +1,5 @@
 package locahouse;
+
 /**
  * @author Edilson do Nascimento
  *
@@ -18,13 +19,26 @@ public class Locacao {
 		this.apartamento = new Apartamento();
 		this.casa = new Casa();
 	}
-	
+
 	public Locacao(Date dataInicio, Date dataFim, Apartamento apartamento, Casa casa) {
 		this.dataInicio = dataInicio;
 		this.dataFim = dataFim;
 		this.apartamento = apartamento;
 		this.casa = casa;
 	}
+	
+	public Locacao(Date dataInicio, Date dataFim, Apartamento apartamento) {
+		this.dataInicio = dataInicio;
+		this.dataFim = dataFim;
+		this.apartamento = apartamento;
+	}
+	
+	public Locacao(Date dataInicio, Date dataFim, Casa casa) {
+		this.dataInicio = dataInicio;
+		this.dataFim = dataFim;
+		this.casa = casa;
+	}
+
 
 
 	public Date getDataInicio() {
@@ -57,6 +71,12 @@ public class Locacao {
 
 	public void setCasa(Casa casa) {
 		this.casa = casa;
+	}
+
+	@Override
+	public String toString() {
+		return "Locacao [dataInicio=" + dataInicio + ", dataFim=" + dataFim + ", apartamento=" + apartamento + ", casa="
+				+ casa + "]";
 	}
 
 }

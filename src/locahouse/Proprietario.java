@@ -46,4 +46,10 @@ public class Proprietario {
 		this.endereco = endereco;
 	}
 
+	@Override
+	public String toString() {
+		return "Nome: " + this.getNome_Prop() + ", portador do CPF: " + this.getCpf_fProp() + ";\n"
+				+ "Residente na endereço: " + this.getEndereco() + ".";
+	}
+
 }

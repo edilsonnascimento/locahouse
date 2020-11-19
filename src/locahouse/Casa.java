@@ -36,4 +36,11 @@ public class Casa extends Imovel {
 		this.qtdComodos = qtdComodos;
 	}
 
+	@Override
+	public String toString() {		
+		return "CASA \n Com estilo arquitetônico " + this.getEstilo() + " e " + this.getQtdComodos() + " comodos "+ super.toString();
+	}
+	
+
+
 }

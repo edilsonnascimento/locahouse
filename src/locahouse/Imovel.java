@@ -57,4 +57,11 @@ public abstract class Imovel {
 		this.proprietario = proprietario;
 	}
 
+	@Override
+	public String toString() {
+		return "Feito em " + tipoMaterial + " com valor de aluguel de R$ " + valorAluguel + "." + 
+				"\nLocalizado no endereco: " + this.endereco + "Abaixo segue dados do Proprietário\n" + proprietario + ".\n";
+	}
+
+	
 }

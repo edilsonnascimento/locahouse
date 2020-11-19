@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Util {
 
-	public List<Endereco> inicializaEnderecos() {
+	public List<Endereco> enderecos() {
 
 		List<Endereco> enderecos = new ArrayList<Endereco>();
 
@@ -21,10 +21,10 @@ public class Util {
 		return enderecos;
 	}
 
-	public List<Proprietario> inicializaProprietarios() {
+	public List<Proprietario> proprietarios() {
 
 		List<Proprietario> proprietarios = new ArrayList<Proprietario>();
-		List<Endereco> enderecosProprietarios = inicializaEnderecos();
+		List<Endereco> enderecosProprietarios = enderecos();
 
 		proprietarios.add(new Proprietario(81316971503l, "Marceleno Pão e Vinho", enderecosProprietarios.get(0)));
 		proprietarios.add(new Proprietario(44227855322l, "Pio de Pietraltina", enderecosProprietarios.get(1)));
@@ -35,11 +35,11 @@ public class Util {
 
 	}
 
-	public List<Apartamento> inicializaApartamentos() {
+	public List<Apartamento> apartamentos() {
 
 		List<Apartamento> apartamentos = new ArrayList<Apartamento>();
-		List<Endereco> enderecosApartamentos = inicializaEnderecos();
-		List<Proprietario> proprietariosApartamentos = inicializaProprietarios();
+		List<Endereco> enderecosApartamentos = enderecos();
+		List<Proprietario> proprietariosApartamentos = proprietarios();
 
 		apartamentos.add(new Apartamento("Caiua", 55, "Alvenaria", 660, enderecosApartamentos.get(4), proprietariosApartamentos.get(0)));
 		apartamentos.add(new Apartamento("Tibuia", 185, "Madeira", 1100, enderecosApartamentos.get(5), proprietariosApartamentos.get(1)));
@@ -49,18 +49,26 @@ public class Util {
 		return apartamentos;
 	}
 	
-	public List<Casa> inicializaCasas(){
+	public void mostraAparatamentos() {
+		System.out.println(apartamentos());
+	}
+	
+	public List<Casa> casas(){
 		
 		List<Casa> casas = new ArrayList<Casa>();
-		List<Endereco> enderecosCasas = inicializaEnderecos();
-		List<Proprietario> proprietariosCasas = inicializaProprietarios();
+		List<Endereco> enderecosCasas = enderecos();
+		List<Proprietario> proprietariosCasas = proprietarios();
 		
-		casas.add(new Casa("Barroco", 26, "Alvenaria", 5000, enderecosCasas.get(5), proprietariosCasas.get(4)));
+		casas.add(new Casa("Barroco", 26, "Alvenaria", 5000, enderecosCasas.get(5), proprietariosCasas.get(3)));
 		casas.add(new Casa("Rococô", 5, "Alvenaria", 660, enderecosCasas.get(0), proprietariosCasas.get(1)));
 		casas.add(new Casa("BNH", 4, "Alvenaria", 250, enderecosCasas.get(2), proprietariosCasas.get(2)));
 		casas.add(new Casa("Simples", 3, "Madeira", 160, enderecosCasas.get(1), proprietariosCasas.get(3)));
 		
 		return casas;
+	}
+	
+	public void mostraListaCasas() {
+		System.out.println(casas());
 	}
 
 }

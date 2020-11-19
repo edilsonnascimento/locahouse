@@ -14,7 +14,8 @@ public class Apartamento extends Imovel {
 		this.areaInterna = 0;
 	}
 
-	public Apartamento(String nomeEdificio, int areaInterna, String tipoMaterial, int valorAluguel, Endereco endereco, Proprietario proprietario) {
+	public Apartamento(String nomeEdificio, int areaInterna, String tipoMaterial, int valorAluguel, Endereco endereco,
+			Proprietario proprietario) {
 		super(tipoMaterial, valorAluguel, endereco, proprietario);
 		this.nomeEdificio = nomeEdificio;
 		this.areaInterna = areaInterna;
@@ -34,6 +35,11 @@ public class Apartamento extends Imovel {
 
 	public void setAreaInterna(int areaInterna) {
 		this.areaInterna = areaInterna;
+	}
+
+	@Override
+	public String toString() {
+		return "APARTAMENTO \nNo edificio " + nomeEdificio + ", com area total " + areaInterna + "m2.\n" + super.toString();
 	}
 
 }
