@@ -3,12 +3,16 @@ package locahouse;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Util {
+public class Utilitario {
+	
+	private List<Endereco> enderecos = new ArrayList<Endereco>();
+	private List<Apartamento> apartamentos = new ArrayList<Apartamento>();
+	private List<Proprietario> proprietarios = new ArrayList<Proprietario>();
+	private List<Endereco> enderecosProprietarios = enderecos();
+	private List<Endereco> enderecosApartamentos = enderecos();
+	private List<Proprietario> proprietariosApartamentos = proprietarios();
 
 	public List<Endereco> enderecos() {
-
-		List<Endereco> enderecos = new ArrayList<Endereco>();
-
 		enderecos.add(new Endereco("Rua Xingu", 187, new Cidade(3526, "Apucarana")));
 		enderecos.add(new Endereco("Rua Peruibe da Cunha", 4658, new Cidade(786, "Cascavel")));
 		enderecos.add(new Endereco("Avenida Brasil", 1566, new Cidade(654, "Curitiba")));
@@ -17,15 +21,11 @@ public class Util {
 		enderecos.add(new Endereco("Beco tanquino", 1100, new Cidade(877, "Araucária")));
 		enderecos.add(new Endereco("Rua Bentivi", 658, new Cidade(857, "Pinhalzinho do Sul")));
 		enderecos.add(new Endereco("Esquina das Alamedas", 1100, new Cidade(877, "Chopinzinho")));
-
+		
 		return enderecos;
 	}
 
 	public List<Proprietario> proprietarios() {
-
-		List<Proprietario> proprietarios = new ArrayList<Proprietario>();
-		List<Endereco> enderecosProprietarios = enderecos();
-
 		proprietarios.add(new Proprietario(81316971503l, "Marceleno Pão e Vinho", enderecosProprietarios.get(0)));
 		proprietarios.add(new Proprietario(44227855322l, "Pio de Pietraltina", enderecosProprietarios.get(1)));
 		proprietarios.add(new Proprietario(55153469980l, "João Paulo 2", enderecosProprietarios.get(2)));
@@ -37,14 +37,11 @@ public class Util {
 
 	public List<Apartamento> apartamentos() {
 
-		List<Apartamento> apartamentos = new ArrayList<Apartamento>();
-		List<Endereco> enderecosApartamentos = enderecos();
-		List<Proprietario> proprietariosApartamentos = proprietarios();
 
-		apartamentos.add(new Apartamento("Caiua", 55, "Alvenaria", 660, enderecosApartamentos.get(4), proprietariosApartamentos.get(0)));
+		apartamentos.add(new Apartamento("Caiua", 55, "Alvenaria", 660, enderecosApartamentos.get(0), proprietariosApartamentos.get(0)));
 		apartamentos.add(new Apartamento("Tibuia", 185, "Madeira", 1100, enderecosApartamentos.get(5), proprietariosApartamentos.get(1)));
-		apartamentos.add(new Apartamento("Tapera", 265, "Mista", 1200, enderecosApartamentos.get(6), proprietariosApartamentos.get(2)));
-		apartamentos.add(new Apartamento("Tapera", 85, "Mista", 900, enderecosApartamentos.get(7), proprietariosApartamentos.get(3)));
+		apartamentos.add(new Apartamento("Tapera", 265, "Alvenaria", 1200, enderecosApartamentos.get(6), proprietariosApartamentos.get(2)));
+		apartamentos.add(new Apartamento("Tapera", 85, "Madeira", 900, enderecosApartamentos.get(7), proprietariosApartamentos.get(3)));
 
 		return apartamentos;
 	}
@@ -53,6 +50,34 @@ public class Util {
 		System.out.println(apartamentos());
 	}
 	
+	public void adicionaApartamento(Leitura leitura, int indiceEndereco) {
+		String condominio = leitura.entDados("Entre com o nome do condominio: ");
+		int areaConstruida = Integer.valueOf(leitura.entDados("Entre com o total da area concluída: "));
+		String tipoMaterial = leitura.entDados("Entre com o tipo de Material: ");
+		int valorAluguel = Integer.valueOf(leitura.entDados("Valor do Aluguel"));		
+		apartamentos.add(new Apartamento(condominio, areaConstruida, tipoMaterial, valorAluguel, enderecos.get(indiceEndereco), retornaProprietario(leitura)));
+	}
+	
+	public Proprietario retornaProprietario(Leitura leitura) {
+			
+		long cpf = Long.valueOf(leitura.entDados("Entre com o CPF: "));
+		String nome = leitura.entDados("Entre com nome: ");
+		
+		return new Proprietario(cpf, nome, enderecos.get(2));
+	}
+
+	public Endereco retornaEndereco(Leitura leitura) {
+		String rua = leitura.entDados("Entre com o nome da Rua: ");
+		int num = Integer.valueOf(leitura.entDados("Entre com o número: "));
+		return new Endereco(rua, num, retornaCidade(leitura));
+	}
+
+	public Cidade retornaCidade(Leitura leitura) {
+		String nomeCidade = leitura.entDados("Entra com o nome da Cidade: ");
+		int codigoCidade = Integer.valueOf(leitura.entDados("Entre com o código da Cidade: "));
+		return new Cidade(codigoCidade, nomeCidade);
+	}
+
 	public List<Casa> casas(){
 		
 		List<Casa> casas = new ArrayList<Casa>();

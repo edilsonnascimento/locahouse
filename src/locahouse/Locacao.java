@@ -20,13 +20,6 @@ public class Locacao {
 		this.casa = new Casa();
 	}
 
-	public Locacao(Date dataInicio, Date dataFim, Apartamento apartamento, Casa casa) {
-		this.dataInicio = dataInicio;
-		this.dataFim = dataFim;
-		this.apartamento = apartamento;
-		this.casa = casa;
-	}
-	
 	public Locacao(Date dataInicio, Date dataFim, Apartamento apartamento) {
 		this.dataInicio = dataInicio;
 		this.dataFim = dataFim;
@@ -75,8 +68,8 @@ public class Locacao {
 
 	@Override
 	public String toString() {
-		return "Locacao [dataInicio=" + dataInicio + ", dataFim=" + dataFim + ", apartamento=" + apartamento + ", casa="
-				+ casa + "]";
+		return "Inicio do aluguel: " + getDataInicio() + " fim do contrato" + getDataFim() + "\n" + this.getApartamento() + "\n"
+				+ this.getCasa();
 	}
 
 }

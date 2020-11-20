@@ -19,12 +19,25 @@ public abstract class Imovel {
 	}
 
 	public Imovel(String tipoMaterial, int valorAluguel, Endereco endereco, Proprietario proprietario) {
-		this.tipoMaterial = tipoMaterial;
-		this.valorAluguel = valorAluguel;
-		this.endereco = endereco;
-		this.proprietario = proprietario;
+		
+		if(! enderecoIgual(proprietario.getEndereco(), endereco)) {
+			this.tipoMaterial = tipoMaterial;
+			this.valorAluguel = valorAluguel;
+			this.endereco = endereco;
+			this.proprietario = proprietario;
+			System.out.println("Imóvel cadastrado com sucesso!");
+		}else {
+			System.out.println("Imóvel não pode ser cadastro está com o mesmo endereco do proprietário");
+		}
 	}
 
+	private boolean enderecoIgual(Endereco enderecoProprietario, Endereco enderecoImovel) {
+		return ( 
+				(enderecoProprietario.getCidade().equals(enderecoImovel.getCidade())) &&
+				(enderecoProprietario.getRua().equals(enderecoImovel.getRua())) &&
+				(enderecoProprietario.getNum() == enderecoImovel.getNum())				
+				);				
+	}
 	public String getTipoMaterial() {
 		return tipoMaterial;
 	}
